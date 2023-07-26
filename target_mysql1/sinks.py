@@ -292,6 +292,7 @@ class MySQLConnector(SQLConnector):
             pass
 
         ddl = f"""
+            SET SQL_REQUIRE_PRIMARY_KEY = 0;
             CREATE TABLE {temp_table_name} AS (
                 SELECT * FROM {from_table_name}
                 WHERE 1=0
