@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 import logging
-import re, sys
+import re
 import string
 import typing as t
 from typing import Any, Dict, Iterable, List, Optional, cast
@@ -327,8 +327,6 @@ class MySQLConnector(SQLConnector):
 
         _, schema_name, table_name = self.parse_full_table_name(full_table_name)
         meta = sqlalchemy.MetaData(schema=schema_name)
-        print(meta) 
-        sys.exit()
         columns: list[sqlalchemy.Column] = []
         primary_keys = primary_keys or []
         try:
