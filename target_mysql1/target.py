@@ -9,7 +9,7 @@ from singer_sdk import typing as th
 from singer_sdk.target_base import SQLTarget
 import typing as t
 
-from target_mysql.sinks import (
+from target_mysql1.sinks import (
     MySQLSink,
 )
 
