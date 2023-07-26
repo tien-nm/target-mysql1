@@ -1,33 +1,25 @@
 version: 1
-default_environment: dev
-project_id: 5147f6bc-e1d7-47f9-a718-63e48f6a5854
+send_anonymous_usage_stats: true
+project_id: "target-mysql1"
+default_environment: test
 environments:
-- name: dev
-- name: staging
-- name: prod
+- name: test
 plugins:
-  extractors:
-  - name: tap-mysql
-    variant: transferwise
-    pip_url: pipelinewise-tap-mysql
-    config:
-      host: 172.16.0.130
-      port: 3306
-      user: sforum_cdc_ro
-      database: sforum_cps
-      password: oszb+C6no83i0RJoXKDrqg
-    select:
-    - sforum_cps-wp_cpnewspostmeta.*
-    metadata:
-      sforum_cps-wp_cpnewspostmeta:
-        replication-method: LOG_BASED
+  extractors: []
   loaders:
-  - name: target-mysql1
+  - name: "target-mysql1"
+    namespace: "target_mysql1"
+    pip_url: -e .
+    capabilities:
+    - about
+    - stream-maps
+    - record-flattening
     config:
-      host: 172.16.0.68
-      flattening_enabled: false
-      default_target_schema: sforum_migration
-      port: '3306'
-      user: usr_cdc_rw
-      database: sforum_migration
-      password: 5rPrM5bqvums8cn0UN3IjQ
+      start_date: '2010-01-01T00:00:00Z'
+    settings:
+    # TODO: To configure using Meltano, declare settings and their types here:
+    - name: username
+    - name: password
+      kind: password
+    - name: start_date
+      value: '2010-01-01T00:00:00Z'
