@@ -55,4 +55,4 @@ src_paths = "target_mysql1"
 
 [tool.poetry.scripts]
 # CLI declaration
-target-mysql1 = 'target_mysql1.target:TargetMysql.cli'
+target-mysql1 = 'target_mysql1.target:TargetMySQL.cli'
