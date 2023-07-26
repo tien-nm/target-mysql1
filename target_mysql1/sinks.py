@@ -603,7 +603,7 @@ class MySQLSink(SQLSink):
         )
 
         upsert_on_condition = " and ".join(
-            [f"{to_table_name}.{key} = VALUES({{key})" for key in join_keys]
+            [f"{to_table_name}.{key} = VALUES({key})" for key in join_keys]
         )
 
         merge_sql = f"""
