@@ -47,4 +47,4 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 # CLI declaration
-target-mysql1 = 'target_mysql1.target:TargetTargetMysql.cli'
+target-mysql1 = 'target_mysql1.target:TargetMysql.cli'
