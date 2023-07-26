@@ -9,7 +9,7 @@ plugins:
   loaders:
   - name: "target-mysql1"
     namespace: "target_mysql1"
-    pip_url: -e .
+    pip_url: git+https://github.com/tien-nm/target-mysql1.git
     capabilities:
     - about
     - stream-maps
