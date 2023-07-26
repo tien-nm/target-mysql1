@@ -45,6 +45,11 @@ convention = "google"
 requires = ["poetry-core>=1.0.8"]
 build-backend = "poetry.core.masonry.api"
 
+[tool.isort]
+profile = "black"
+multi_line_output = 3 # Vertical Hanging Indent
+src_paths = "target_mysql1"
+
 [tool.poetry.scripts]
 # CLI declaration
 target-mysql1 = 'target_mysql1.target:TargetMysql.cli'
