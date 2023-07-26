@@ -17,7 +17,7 @@ from target_mysql.sinks import (
 class TargetMySQL(SQLTarget):
     """Sample target for MySQL."""
 
-    name = "target-mysql"
+    name = "target-mysql1"
 
     default_sink_class = MySQLSink
 
