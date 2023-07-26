@@ -1,0 +1,33 @@
+version: 1
+default_environment: dev
+project_id: 5147f6bc-e1d7-47f9-a718-63e48f6a5854
+environments:
+- name: dev
+- name: staging
+- name: prod
+plugins:
+  extractors:
+  - name: tap-mysql
+    variant: transferwise
+    pip_url: pipelinewise-tap-mysql
+    config:
+      host: 172.16.0.130
+      port: 3306
+      user: sforum_cdc_ro
+      database: sforum_cps
+      password: oszb+C6no83i0RJoXKDrqg
+    select:
+    - sforum_cps-wp_cpnewspostmeta.*
+    metadata:
+      sforum_cps-wp_cpnewspostmeta:
+        replication-method: LOG_BASED
+  loaders:
+  - name: target-mysql1
+    config:
+      host: 172.16.0.68
+      flattening_enabled: false
+      default_target_schema: sforum_migration
+      port: '3306'
+      user: usr_cdc_rw
+      database: sforum_migration
+      password: 5rPrM5bqvums8cn0UN3IjQ
