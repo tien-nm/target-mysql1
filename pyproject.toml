@@ -10,6 +10,9 @@ keywords = [
 ]
 license = "Apache-2.0"
 
+packages = [
+    { include = "target_mysql1" }
+]
 [tool.poetry.dependencies]
 python = "<3.12,>=3.7.1"
 singer-sdk = { version="^0.30.0" }
